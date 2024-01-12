@@ -17,6 +17,13 @@ metadata:
   name: devfile-sample-python-basic-on-pull-request
   namespace: mbasti-tenant
 spec:
+  taskRunSpecs:
+  - pipelineTaskName: clamav-scan
+    stepOverrides:
+      - name: extract-and-scan-image
+        resources:
+          requests:
+            cpu: 1
   params:
   - name: dockerfile
     value: docker/Dockerfile
